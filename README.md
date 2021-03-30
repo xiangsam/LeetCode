@@ -4,7 +4,7 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 
 #### todo-list
 
-[ ]Greedy
+[x]Greedy
 
 [ ]Two Pointers
 
