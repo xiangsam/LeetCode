@@ -4,17 +4,17 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 
 #### todo-list
 
-[]Greedy
+[ ]Greedy
 
-[]Two Pointers
+[ ]Two Pointers
 
-[]Binary Search
+[ ]Binary Search
 
-[]Sort
+[ ]Sort
 
-[]Search
+[ ]Search
 
-[]Dynamic Programming
+[ ]Dynamic Programming
 
 
 
