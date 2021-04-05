@@ -24,4 +24,4 @@ At first I am confused with the fact that you can simply focus on the end of int
 
 665.c:
 
-This problem is special because the locally optimal solution differs. if we get $nums[i] < nums[i-1]$, we need to decide change which one to get the locally optimal solution. Changing $nums[i-1]$ is prefered, as it can give larger space for the remain. But if $nums[i-2] >  nums[i]$, changing $nums[i-1]$ can't work, we need to change $nums[i]$
+This problem is special because the locally optimal solution differs. if we get ![](http://latex.codecogs.com/gif.latex?nums[i]<nums[i-1])$nums[i] < nums[i-1]$, we need to decide change which one to get the locally optimal solution. Changing $nums[i-1]$ is prefered, as it can give larger space for the remain. But if $nums[i-2] >  nums[i]$, changing $nums[i-1]$ can't work, we need to change $nums[i]$
