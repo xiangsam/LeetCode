@@ -15,6 +15,7 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 
 
 ---
+to see the Mathematical formula, please close the dark mode of github
 
 ### Greedy
 
