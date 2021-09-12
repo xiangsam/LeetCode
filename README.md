@@ -39,3 +39,6 @@ We can create two pointer point to head. The fast pointer move two steps at a ti
 
 the proof is [here](https://leetcode-cn.com/problems/linked-list-cycle-lcci/solution/huan-lu-jian-ce-by-leetcode-solution-s2la/)
 
+680:
+
+when meet difference, just delete one of them and check remain again
