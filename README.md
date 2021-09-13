@@ -5,7 +5,7 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 #### todo-list
 
 - [x] Greedy
-- [ ] Two Pointers
+- [x] Two Pointers
 - [ ] Binary Search
 - [ ] Sort
 - [ ] Search
@@ -42,3 +42,14 @@ the proof is [here](https://leetcode-cn.com/problems/linked-list-cycle-lcci/solu
 680:
 
 when meet difference, just delete one of them and check remain again
+
+
+
+- premium problem 340 skip now
+
+
+
+---
+
+### Binary Search
+
