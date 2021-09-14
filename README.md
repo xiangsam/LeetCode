@@ -53,3 +53,7 @@ when meet difference, just delete one of them and check remain again
 
 ### Binary Search
 
+69:
+
+[Newton method](https://oi-wiki.org/math/newton/)
+
