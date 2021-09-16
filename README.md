@@ -57,3 +57,9 @@ when meet difference, just delete one of them and check remain again
 
 [Newton method](https://oi-wiki.org/math/newton/)
 
+81:
+
+- middle point $p_{mid} < p_{end}$,  we can make sure $p_{mid} \to p_{end}$ sort in non-decreasing order
+- if $p_{mid} > p_{end}$, then $p_{start}\to p_{mid}$ sort in non-decreasing order
+- if $p_{mid} = p_{end}$, both cases are possible, $p_{start}\to p_{mid}$ is the same. if $p_{start} \neq p_{mid}$, $p_{mid}\to p_{end}$ sort in non-decreasing order. if $p_{start} = p_{mid}$, we can't judge,  just incerase start
+
