@@ -39,7 +39,7 @@ We can create two pointer point to head. The fast pointer move two steps at a ti
 
 the proof is [here](https://leetcode-cn.com/problems/linked-list-cycle-lcci/solution/huan-lu-jian-ce-by-leetcode-solution-s2la/)
 
-680:
+680:~~~~
 
 when meet difference, just delete one of them and check remain again
 
@@ -52,6 +52,8 @@ when meet difference, just delete one of them and check remain again
 ---
 
 ### Binary Search
+
+`find the case that you can choose one side by comparing middle with something`
 
 69:
 
