@@ -73,3 +73,6 @@ compare nums[middle] with nums[end], and judge which part to choose.
 
 [solution](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/solution/xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-de-zui--16/)
 
+4:
+
+the problem can be regard as find k-th large number in two sorted array
