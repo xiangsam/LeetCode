@@ -76,3 +76,18 @@ compare nums[middle] with nums[end], and judge which part to choose.
 4:
 
 the problem can be regard as find k-th large number in two sorted array
+
+
+
+----
+
+### Sort Algorithm
+
+215:
+
+**quick select algorithm**: find k-th largest/smallest element int unsorted array
+
+Time complexity: O(n)
+
+when we swap pivot point and l(l==r) in quick sort algorithm, we can make sure pivot point is x-th largest number in the array, so we can throw one side array when search target
+
