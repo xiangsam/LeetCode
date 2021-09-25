@@ -91,3 +91,9 @@ Time complexity: O(n)
 
 when we swap pivot point and l(l==r) in quick sort algorithm, we can make sure pivot point is x-th largest number in the array, so we can throw one side array when search target
 
+347, 451:
+
+**Bucket sort algorithm**
+
+unordered_map is useful to count character's frequency in CPP
+
