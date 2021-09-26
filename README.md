@@ -7,7 +7,7 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 - [x] Greedy
 - [x] Two Pointers
 - [x] Binary Search
-- [ ] Sort Algorithm
+- [x] Sort Algorithm
 - [ ] Search
 - [ ] Dynamic Programming
 
