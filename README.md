@@ -8,7 +8,7 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 - [x] Two Pointers
 - [x] Binary Search
 - [x] Sort Algorithm
-- [ ] Search
+- [ ] DFS,BFS
 - [ ] Dynamic Programming
 
 to see the Mathematical formula, please close the dark mode of github
@@ -97,3 +97,18 @@ when we swap pivot point and l(l==r) in quick sort algorithm, we can make sure p
 
 unordered_map is useful to count character's frequency in CPP
 
+
+
+---
+
+### DFS and BFS
+
+#### DFS
+
+we usually accomplish depth-first search with stack struction or  recursion equally.
+
+DFS is also useful in detecting cycle.
+
+695:
+
+There are two ways to write DFS in recursion, search next->check valid or check valid-> search next.
