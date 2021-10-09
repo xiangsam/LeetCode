@@ -112,3 +112,20 @@ DFS is also useful in detecting cycle.
 695:
 
 There are two ways to write DFS in recursion, search next->check valid or check valid-> search next.
+
+
+
+46:
+
+回溯法，常用于解决排列，组合，选择类问题
+
+步骤：修改当前节点状态 $\rightarrow$ 递归字节点 $\rightarrow$ 回改当前节点状态
+
+
+
+**reference:**   [全排列](https://leetcode-cn.com/problems/permutations/solution/quan-pai-lie-by-leetcode-solution-2/)
+
+
+
+
+
