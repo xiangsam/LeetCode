@@ -125,7 +125,9 @@ There are two ways to write DFS in recursion, search next->check valid or check 
 
 **reference:**   [全排列](https://leetcode-cn.com/problems/permutations/solution/quan-pai-lie-by-leetcode-solution-2/)
 
+51.
 
+When N = 2 or 3, the queen can't fill all rows of the board
 
 
 
