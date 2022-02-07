@@ -1,5 +1,10 @@
+/*
+ * @Author: Samrito
+ * @Date: 2022-02-07 17:02:32
+ * @LastEditors: Samrito
+ * @LastEditTime: 2022-02-07 19:49:06
+ */
 #include <iostream>
-#include <sec_api/stdio_s.h>
 #include <vector>
 
 using namespace std;
@@ -11,7 +16,8 @@ private:
 public:
   void dfs(vector<vector<char>> &board, vector<vector<int>> &flag, int m, int n,
            int r, int c) {
-    if (r < 0 || r >= m || c < 0 || c >= n || board[r][c] == 'X' || flag[r][c] == 1) {
+    if (r < 0 || r >= m || c < 0 || c >= n || board[r][c] == 'X' ||
+        flag[r][c] == 1) {
       return;
     }
     flag[r][c] = 1;
