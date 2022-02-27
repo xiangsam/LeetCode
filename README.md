@@ -23,7 +23,7 @@ to see the Mathematical formula, please close the dark mode of github
 
 665:
 
-This problem is special because the locally optimal solution differs. if we get ![](https://latex.codecogs.com/svg.latex?nums[i]<nums[i-1]), we need to decide change which one to get the locally optimal solution. Changing ![](https://latex.codecogs.com/svg.latex?nums[i-1]) is prefered, as it can give larger space for the remain. But if ![](https://latex.codecogs.com/svg.latex?nums[i-2]>nums[i]), changing ![](https://latex.codecogs.com/svg.latex?nums[i-1]) can't work, we need to change ![](https://latex.codecogs.com/svg.latex?nums[i])
+不同情况下需要选择的局部最优解不同。 对于 ![](https://latex.codecogs.com/svg.latex?nums[i]<nums[i-1]), 需要决定修改谁作为局部最优解. 修改 ![](https://latex.codecogs.com/svg.latex?nums[i-1]) 更好一点, 因为可以留下更多的余地. 但如果 ![](https://latex.codecogs.com/svg.latex?nums[i-2]>nums[i]), 改变 ![](https://latex.codecogs.com/svg.latex?nums[i-1]) 就不可行了, 需要改变![](https://latex.codecogs.com/svg.latex?nums[i])
 
 
 
