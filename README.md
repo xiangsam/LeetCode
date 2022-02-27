@@ -19,7 +19,7 @@ to see the Mathematical formula, please close the dark mode of github
 
 435:(similar to 452)
 
-At first I am confused with the fact that you can simply focus on the end of interval. Once I notice that choose the minimum end meaning another intervals is unable to put in front of it, the solution is naturally
+选择最小的区间结尾则其他区间无法再放在它前面。
 
 665:
 
