@@ -127,4 +127,8 @@ There are two ways to write DFS in recursion, search next->check valid or check 
 
 
 
+---
 
+### Dynamic Programing
+
+如果题目需求的是最终状态，那么使用动态搜索比较方便；如果题目需要输出所有的路径，那么使用带有状态记录的优先搜索会比较方便。
