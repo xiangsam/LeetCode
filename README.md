@@ -8,7 +8,7 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 - [x] Two Pointers
 - [x] Binary Search
 - [x] Sort Algorithm
-- [ ] DFS,BFS
+- [x] DFS,BFS
 - [ ] Dynamic Programming
 
 to see the Mathematical formula, please close the dark mode of github
@@ -132,3 +132,11 @@ There are two ways to write DFS in recursion, search next->check valid or check 
 ### Dynamic Programing
 
 如果题目需求的是最终状态，那么使用动态搜索比较方便；如果题目需要输出所有的路径，那么使用带有状态记录的优先搜索会比较方便。
+
+542:
+
+一般来说，因为这道题涉及到四个方向上的最近搜索，所以很多人的第一反应可能会是广度
+优先搜索。但是对于一个大小 O(mn) 的二维数组，对每个位置进行四向搜索，最坏情况的时间复
+杂度（即全是 1）会达到恐怖的 O(m2n2)。一种办法是使用一个 dp 数组做 memoization，使得广
+度优先搜索不会重复遍历相同位置；另一种更简单的方法是，我们从左上到右下进行一次动态搜
+索，再从右下到左上进行一次动态搜索。两次动态搜索即可完成四个方向上的查找。
