@@ -11,7 +11,6 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 - [x] DFS,BFS
 - [ ] Dynamic Programming
 
-to see the Mathematical formula, please close the dark mode of github
 
 ---
 
@@ -23,7 +22,7 @@ to see the Mathematical formula, please close the dark mode of github
 
 665:
 
-不同情况下需要选择的局部最优解不同。 对于$nums[i]< nums[i-1]$, 需要决定修改谁作为局部最优解. 修改 ![](https://latex.codecogs.com/svg.latex?nums[i-1]) 更好一点, 因为可以留下更多的余地. 但如果 ![](https://latex.codecogs.com/svg.latex?nums[i-2]>nums[i]), 改变 ![](https://latex.codecogs.com/svg.latex?nums[i-1]) 就不可行了, 需要改变![](https://latex.codecogs.com/svg.latex?nums[i])
+不同情况下需要选择的局部最优解不同。 对于$nums[i]< nums[i-1]$, 需要决定修改谁作为局部最优解. 修改$nums[i-1]$更好一点, 因为可以留下更多的余地. 但如果 $nums[i-2]>nums[i]$, 改变$nums[i-1]$就不可行了, 需要改变$nums[i]$
 
 
 
@@ -39,7 +38,7 @@ We can create two pointer point to head. The fast pointer move two steps at a ti
 
 the proof is [here](https://leetcode-cn.com/problems/linked-list-cycle-lcci/solution/huan-lu-jian-ce-by-leetcode-solution-s2la/)
 
-680:~~~~
+680:
 
 when meet difference, just delete one of them and check remain again
 
