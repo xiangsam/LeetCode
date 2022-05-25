@@ -210,3 +210,24 @@ j 之前就已经被更新成物品 i 的值了。
 行的时候必须正向遍历，因为我们需要利用当前物品在第 j-w 列的信息
 
 ---
+
+
+650：
+
+除了常规的DP解法，这题还可以使用数学方法。得到N个'A'的方法为[CP..][CP...]，操作数分别为$g_{1}， g_{2}$，第一组得到$g_{1}$个'A'，再结合第二组操作可以得到$g_{1}g_{2}$个'A'，因此N = $g_{1}g_{2}...$。若$g_{i} = pq$，则该组操作可以分为两个子组，操作数从pq变为p+q，对$p \geq 2, q\geq 2$，显然$pq \geq p+q$。因此，问题转为求N的质因子之和。
+
+使用埃氏筛求小于N的质因子：
+```
+vector<bool> is_prime(n + 1, true);
+    is_prime[0] = false;
+    is_prime[1] = false;
+    vector<int> prime;
+    for (int i = 2; i <= n; ++i) { //埃氏筛
+      if (is_prime[i]) {
+        prime.push_back(i);
+        for (int j = 2 * i; j <= n; j += i) {
+          is_prime[j] = false;
+        }
+      }
+    }
+```
