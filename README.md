@@ -9,7 +9,8 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 - [x] Binary Search
 - [x] Sort Algorithm
 - [x] DFS,BFS
-- [ ] Dynamic Programming
+- [x] Dynamic Programming
+- [ ] Divide Conquer
 
 
 ---
