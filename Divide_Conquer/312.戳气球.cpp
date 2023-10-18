@@ -8,7 +8,7 @@
 #include <vector>
 using namespace std;
 // @lc code=start
-class Solution {
+class Solution1 { // memo递归
 public:
   vector<vector<int>> memo;
   vector<int> val;
@@ -36,6 +36,31 @@ public:
     memo.resize(n + 2, vector<int>(n + 2, -1));
     int ret = solve(0, n + 1);
     return ret;
+  }
+};
+
+class Solution { // dp
+public:
+  int maxCoins(vector<int> &nums) {
+    int n = nums.size();
+    vector<int> val(n + 2, 1);
+    for (int i = 1; i <= n; ++i) {
+      val[i] = nums[i - 1];
+    }
+    vector<vector<int>> dp(n + 2, vector<int>(n + 2));
+    for (int len = 2; len <= n + 1; ++len) {
+      for (int l = 0; l < n; ++l) {
+        int r = l + len;
+        if (r > n + 1)
+          continue;
+        for (int k = l + 1; k < r; ++k) {
+          int sum = val[l] * val[r] * val[k];
+          sum += dp[l][k] + dp[k][r];
+          dp[l][r] = max(dp[l][r], sum);
+        }
+      }
+    }
+    return dp[0][n + 1];
   }
 };
 // @lc code=end
