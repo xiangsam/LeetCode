@@ -11,8 +11,8 @@ using namespace std;
 class Solution {
 public:
   int maxChunksToSorted1(vector<int> &arr) {
-    //新加入元素可能改变原有分块情况
-    // 从右向左比较块的最大值，使用栈模拟
+    // 新加入元素可能改变原有分块情况
+    //  从右向左比较块的最大值，使用栈模拟
     stack<int> mx_stack;
     for (const int &e : arr) {
       if (mx_stack.empty() || e >= mx_stack.top()) {
@@ -29,7 +29,7 @@ public:
     return mx_stack.size();
   }
   int maxChunksToSorted(vector<int> &arr) {
-    //如果可以分块，则左边所有元素最大值小于等于右边所有元素的最小值
+    // 如果可以分块，则左边所有元素最大值小于等于右边所有元素的最小值
     int nums = arr.size();
     vector<int> leftMax(nums, 0), rightMin(nums, 0);
     leftMax[0] = arr[0];
