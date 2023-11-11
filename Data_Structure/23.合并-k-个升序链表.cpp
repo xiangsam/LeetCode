@@ -26,16 +26,19 @@ struct ListNode {
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-struct CMP {
-  bool operator()(ListNode *a, ListNode *b) { return a->val > b->val; }
-};
+
 class Solution {
 public:
   ListNode *mergeKLists(vector<ListNode *> &lists) {
     if (lists.empty()) {
       return nullptr;
     }
-    priority_queue<ListNode *, vector<ListNode *>, CMP> q;
+    // struct CMP {
+    //   bool operator()(ListNode *a, ListNode *b) { return a->val > b->val; }
+    // };
+    // priority_queue<ListNode *, vector<ListNode *>, CMP> q;
+    auto cmp = [](ListNode *a, ListNode *b) { return a->val > b->val; };
+    priority_queue<ListNode *, vector<ListNode *>, decltype(cmp)> q(cmp);
     for (auto list : lists) {
       if (list) {
         q.push(list); // 第一个元素加入最小堆
