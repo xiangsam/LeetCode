@@ -13,11 +13,10 @@ using namespace std;
 class Solution {
 public:
   vector<vector<int>> getSkyline(vector<vector<int>> &buildings) {
-    vector<vector<int>> ans;
     priority_queue<pair<int, int>> max_heap;
-    int n = buildings.size();
-    int i = 0, cur_x, cur_h;
-    while (i < n || !max_heap.empty()) {
+    vector<vector<int>> ans;
+    int cur_x, cur_h, i = 0, n = buildings.size();
+    while (!max_heap.empty() || i < n) {
       if (max_heap.empty() ||
           i < n && buildings[i][0] <= max_heap.top().second) {
         cur_x = buildings[i][0];
@@ -29,9 +28,11 @@ public:
         cur_x = max_heap.top().second;
         while (!max_heap.empty() && cur_x >= max_heap.top().second) {
           max_heap.pop();
+          // 最终为空则不可显（落到地平线），
+          // 否则落到可显建筑上（右坐标比cur更大且最高的楼）
         }
       }
-      cur_h = (max_heap.empty()) ? 0 : max_heap.top().first;
+      cur_h = max_heap.empty() ? 0 : max_heap.top().first;
       if (ans.empty() || cur_h != ans.back()[1]) {
         ans.push_back({cur_x, cur_h});
       }
