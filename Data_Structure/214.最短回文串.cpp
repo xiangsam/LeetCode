@@ -23,16 +23,16 @@ public:
         next[i] = j + 1;
       }
     }
-    int best = -1;
+    int match = -1;
     for (int i = n - 1; i >= 0; --i) {
-      while (best != -1 && s[best + 1] != s[i]) {
-        best = next[best];
+      while (match != -1 && s[i] != s[match + 1]) {
+        match = next[match];
       }
-      if (s[best + 1] == s[i]) {
-        ++best;
+      if (s[i] == s[match + 1]) {
+        ++match;
       }
     }
-    string add = best == n - 1 ? "" : s.substr(best + 1, n);
+    string add = match == n - 1 ? "" : s.substr(match + 1, n);
     reverse(add.begin(), add.end());
     return add + s;
   }
