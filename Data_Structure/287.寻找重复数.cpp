@@ -20,7 +20,7 @@ public:
     }
     return -1;
   }
-  int findDuplicate(vector<int> &nums) {
+  int findDuplicate2(vector<int> &nums) { // 快慢指针
     int slow = 0, fast = 0;
     do {
       slow = nums[slow];
@@ -32,6 +32,24 @@ public:
       fast = nums[fast];
     }
     return slow;
+  }
+  int findDuplicate(vector<int> &nums) { // 二分查找
+    int n = nums.size();
+    int l = 1, r = n - 1, ans = -1;
+    while (l <= r) {
+      int mid = (l + r) >> 1;
+      int cnt = 0;
+      for (int i = 0; i < n; ++i) {
+        cnt += nums[i] <= mid;
+      }
+      if (cnt <= mid) { // 对目标x,nums中小于等于x的元素个数一定要大于x
+        l = mid + 1;
+      } else {
+        r = mid - 1;
+        ans = mid;
+      }
+    }
+    return ans;
   }
 };
 // @lc code=end
