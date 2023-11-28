@@ -13,29 +13,29 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-  //   int nthSuperUglyNumber(int n, vector<int> &primes) {
-  //     priority_queue<int, vector<int>, greater<int>> min_heap;
-  //     min_heap.emplace(1);
-  //     int ans = 0;
-  //     while (n) {
-  //       int cur = min_heap.top();
-  //       min_heap.pop();
-  //       if (cur == ans) {
-  //         continue;
-  //       }
-  //       ans = cur;
-  //       for (const auto &e : primes)
-  //       {//计算由当前丑数产生的新丑数，加到最小堆中排列
-  //         if (cur < INT_MAX / e) {
-  //           min_heap.emplace(e * cur);
-  //         } else {
-  //           break;
-  //         }
-  //       }
-  //       --n;
-  //     }
-  //     return ans;
-  //   }
+  int nthSuperUglyNumber1(int n, vector<int> &primes) {
+    priority_queue<int, vector<int>, greater<int>> min_heap;
+    min_heap.emplace(1);
+    int ans = 0;
+    while (n) {
+      int cur = min_heap.top();
+      min_heap.pop();
+      if (cur == ans) {
+        continue;
+      }
+      ans = cur;
+      for (const auto &e :
+           primes) { // 计算由当前丑数产生的新丑数，加到最小堆中排列
+        if (cur < INT_MAX / e) {
+          min_heap.emplace(e * cur);
+        } else {
+          break;
+        }
+      }
+      --n;
+    }
+    return ans;
+  }
   int nthSuperUglyNumber(int n, vector<int> &primes) {
     // 每个素数（在primes数组中）对应一个索引（在indices数组中）。这个索引指示了该素数已经乘过的最大的超级丑数的位置。以此来避免重复运算，而且确保下一个超级丑数总是正确的增长顺序。
     // 具体来说，当我们在计算第i个超级丑数时，indices数组告诉我们每个素数现在应该与uglies数组中哪一个已知超级丑数相乘。换句话说，indices[j]
