@@ -13,7 +13,9 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 - [x] Divide Conquer
 - [x] Math
 - [x] Bit_Ops
-- [ ] Data_Structure
+- [x] Data_Structure
+- [x] String
+- [ ] Linked_List
 
 
 ---
