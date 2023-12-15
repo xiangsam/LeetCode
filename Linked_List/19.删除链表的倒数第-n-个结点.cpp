@@ -38,13 +38,28 @@ public:
     }
     return node;
   }
-  ListNode *removeNthFromEnd(ListNode *head, int n) {
+  ListNode *removeNthFromEnd1(ListNode *head, int n) {
     ListNode *dummy = new ListNode(0);
     dummy->next = head;
     int count = n + 1;
     ListNode *p = findNthFromEnd(dummy, count);
     ListNode *target = p->next;
     p->next = target->next;
+    delete target;
+    return dummy->next;
+  }
+  ListNode *removeNthFromEnd(ListNode *head, int n) {
+    ListNode *dummy = new ListNode(0, head);
+    ListNode *front = dummy, *tail = dummy;
+    while (n--) {
+      tail = tail->next;
+    }
+    while (tail->next != nullptr) {
+      front = front->next;
+      tail = tail->next;
+    }
+    ListNode *target = front->next;
+    front->next = target->next;
     delete target;
     return dummy->next;
   }
