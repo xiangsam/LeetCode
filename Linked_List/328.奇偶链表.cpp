@@ -36,14 +36,14 @@ public:
         odd->next = even->next;
         odd = odd->next;
       } else {
-        odd->next = nullptr;
+        odd->next = nullptr; // 避免出现环
         break;
       }
       if (odd->next != nullptr) {
         even->next = odd->next;
         even = even->next;
       } else {
-        even->next = nullptr;
+        even->next = nullptr; // 避免出现环
         break;
       }
     }
