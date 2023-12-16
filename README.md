@@ -15,7 +15,9 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 - [x] Bit_Ops
 - [x] Data_Structure
 - [x] String
-- [ ] Linked_List
+- [x] Linked_List
+- [ ] Tree
+- [ ] Graph
 
 
 ---
