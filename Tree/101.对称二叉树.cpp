@@ -30,18 +30,16 @@ struct TreeNode {
  */
 class Solution {
 public:
-    bool checkSymmetric(TreeNode *node_l, TreeNode *node_r){
-        if(node_l == nullptr && node_r == nullptr){
-            return true;
-        }
-        else if(node_l && node_r){
-            return (node_l->val == node_r->val) && checkSymmetric(node_l->left, node_r->right) && checkSymmetric(node_l->right ,node_r->left);
-        }
-        return false;
+  bool checkSymmetric(TreeNode *node_l, TreeNode *node_r) {
+    if (node_l == nullptr && node_r == nullptr) {
+      return true;
+    } else if (node_l && node_r) {
+      return (node_l->val == node_r->val) &&
+             checkSymmetric(node_l->left, node_r->right) &&
+             checkSymmetric(node_l->right, node_r->left);
     }
-    bool isSymmetric(TreeNode *root) {
-        return checkSymmetric(root, root);
-    }
-
+    return false;
+  }
+  bool isSymmetric(TreeNode *root) { return checkSymmetric(root, root); }
 };
 // @lc code=end
