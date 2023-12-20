@@ -34,16 +34,17 @@ class Solution {
 public:
   TreeNode *dfs(vector<int> &preorder, unordered_map<int, int> &indexMap, int l,
                 int r, int rootIndex) {
+    // l, r都是对inorder数组而言， rootIndex对preorder而言
     if (l > r) {
       return nullptr;
     }
     int rootVal = preorder[rootIndex], inorderRootIndex = indexMap[rootVal];
-    int leftTreeLen = inorderRootIndex - l - 1;
+    int leftTreeLen = inorderRootIndex - l;
     TreeNode *root = new TreeNode(rootVal);
     root->left =
         dfs(preorder, indexMap, l, inorderRootIndex - 1, rootIndex + 1);
     root->right = dfs(preorder, indexMap, inorderRootIndex + 1, r,
-                      rootIndex + 2 + leftTreeLen);
+                      rootIndex + 1 + leftTreeLen);
     return root;
   }
   TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
