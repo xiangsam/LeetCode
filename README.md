@@ -263,3 +263,11 @@ vector<bool> is_prime(n + 1, true);
 
 - 需要找到每个元素的下一个更大（或更小）元素的场合。
 - 需要处理具有某种单调性质的问题，例如股票价格问题，其中需要找到每一天之后的更高价格。
+
+
+---
+### Tree
+#### 从前、中、后序遍历恢复树
+- 前+中：pre_start, pre_end, in_start, in_end。使用pre_start为根节点找到其在中序遍历中的位置，在中序遍历中确定左右子树长度。
+- 后+中：post_start, post_end, in_start, in_end。使用post_end为根节点找到其在中序遍历中的位置，在中序遍历中确定左右子树长度。
+- 前+后：pre_start, pre_end, post_start, post_end。pre_start+1为左子树根节点，找到其在后序遍历中的位置，从而结合post_start确定左子树长度。
