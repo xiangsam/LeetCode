@@ -45,7 +45,7 @@ public:
     preorderDFS(root);
     return ans;
   }
-  vector<int> preorderTraversal(TreeNode *root) {
+  vector<int> preorderTraversal2(TreeNode *root) {
     if (root == nullptr) {
       return ans;
     }
@@ -61,6 +61,21 @@ public:
       if (top->left) {
         stk.emplace(top->left);
       }
+    }
+    return ans;
+  }
+  vector<int> preorderTraversal(TreeNode *root) {
+    stack<TreeNode *> stk;
+    vector<int> ans;
+    TreeNode *ptr = root;
+    while (ptr || !stk.empty()) {
+      while (ptr) {
+        stk.emplace(ptr->right);
+        ans.emplace_back(ptr->val);
+        ptr = ptr->left;
+      }
+      ptr = stk.top();
+      stk.pop();
     }
     return ans;
   }
