@@ -271,3 +271,74 @@ vector<bool> is_prime(n + 1, true);
 - 前+中：pre_start, pre_end, in_start, in_end。使用pre_start为根节点找到其在中序遍历中的位置，在中序遍历中确定左右子树长度。
 - 后+中：post_start, post_end, in_start, in_end。使用post_end为根节点找到其在中序遍历中的位置，在中序遍历中确定左右子树长度。
 - 前+后：pre_start, pre_end, post_start, post_end。pre_start+1为左子树根节点，找到其在后序遍历中的位置，从而结合post_start确定左子树长度。
+
+#### 前中后序遍历迭代写法
+- 前序
+  ```c++
+  stack<TreeNode *> stk;
+    vector<int> ans;
+    TreeNode *ptr = root;
+    while (ptr || !stk.empty()) {
+      while (ptr) {
+        stk.emplace(ptr->right);
+        ans.emplace_back(ptr->val);
+        ptr = ptr->left;
+      }
+      ptr = stk.top();
+      stk.pop();
+    }
+  ```
+- 中序
+  ```c++
+  stack<TreeNode *> stk;
+    vector<int> ans;
+    TreeNode *ptr = root;
+    while (ptr || !stk.empty()) {
+      while (ptr) {
+        stk.emplace(ptr);
+        ptr = ptr->left;
+      }
+      ptr = stk.top();
+      stk.pop();
+      ans.emplace_back(ptr->val);
+      ptr = ptr->right;
+    }
+    return ans;
+  ```
+- 后序
+  ```c++
+  stack<TreeNode *> stk;
+    vector<int> ans;
+    TreeNode *ptr = root;
+    while (ptr || !stk.empty()) {
+      while (ptr) {
+        ans.emplace_back(ptr->val);
+        stk.emplace(ptr->left);
+        ptr = ptr->right;
+      }
+      ptr = stk.top();
+      stk.pop();
+    }
+    reverse(ans.begin(), ans.end());
+  ```
+  ```c++
+  stack<TreeNode *> stk;
+    TreeNode *ptr = root;
+    vector<int> ans;
+    unordered_map<TreeNode *, bool> visited;
+    while (ptr || !stk.empty()) {
+      while (ptr) {
+        stk.emplace(ptr);
+        visited[ptr] = false;
+        ptr = ptr->left;
+      }
+      while (!stk.empty() && visited[stk.top()]) {
+        ans.emplace_back(stk.top()->val);
+        stk.pop();
+      }
+      if (!stk.empty()) {
+        ptr = stk.top()->right;
+        visited[stk.top()] = true;
+      }
+    }
+  ```
