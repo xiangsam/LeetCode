@@ -46,7 +46,7 @@ struct TreeNode {
  * right(right) {}
  * };
  */
-class Solution {
+class Solution1 {
 public:
   ListNode *getMid(ListNode *left, ListNode *right) {
     ListNode *fast = left, *slow = left;
@@ -67,5 +67,29 @@ public:
     return root;
   }
   TreeNode *sortedListToBST(ListNode *head) { return buildTree(head, nullptr); }
+};
+class Solution {
+public:
+  TreeNode *build(ListNode *&head, int left, int right) {
+    if (left > right) {
+      return nullptr;
+    }
+    int mid = (left + right + 1) >> 1;
+    TreeNode *root = new TreeNode(0);
+    root->left = build(head, left, mid - 1);
+    root->val = head->val;
+    head = head->next;
+    root->right = build(head, mid + 1, right);
+    return root;
+  }
+  TreeNode *sortedListToBST(ListNode *head) {
+    ListNode *p = head;
+    int length = 0;
+    while (p) {
+      ++length;
+      p = p->next;
+    }
+    return build(head, 0, length - 1);
+  }
 };
 // @lc code=end
