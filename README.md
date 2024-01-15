@@ -16,7 +16,7 @@ Solution of LeetCode problems. The order is according to "LeetCode 101" by Chang
 - [x] Data_Structure
 - [x] String
 - [x] Linked_List
-- [ ] Tree
+- [x] Tree
 - [ ] Graph
 
 
