@@ -62,36 +62,34 @@ class Solution {
 public:
   int encode(int u, int v, int n) { return u * n + v; }
   int reachableNodes(vector<vector<int>> &edges, int maxMoves, int n) {
-    vector<vector<pair<int, int>>> adList(n);
+    unordered_map<int, vector<pair<int, int>>> adList; // u: [v, dist]
     for (const auto &edge : edges) {
       adList[edge[0]].emplace_back(edge[1], edge[2]);
       adList[edge[1]].emplace_back(edge[0], edge[2]);
     }
-    unordered_map<int, int> used;
+    int reachableNodes = 0;
     unordered_set<int> visited;
-    // step, node
+    unordered_map<int, int> used;
     priority_queue<pair<int, int>, vector<pair<int, int>>,
                    greater<pair<int, int>>>
         pq;
-    pq.emplace(0, 0);
-    int reachableNodes = 0;
+    pq.emplace(0, 0); // [dist, v]
     while (!pq.empty() && pq.top().first <= maxMoves) {
-      auto [step, node] = pq.top();
+      auto [nds, node] = pq.top();
       pq.pop();
       if (visited.contains(node)) {
         continue;
       }
       visited.emplace(node);
       ++reachableNodes;
-      for (auto [v, nds] : adList[node]) { // 当前可访问节点
-        if (nds + step + 1 <= maxMoves && !visited.contains(v)) {
-          pq.emplace(nds + step + 1, v);
+      for (const auto &[v, v_nds] : adList[node]) {
+        if (nds + v_nds + 1 <= maxMoves && !visited.contains(v)) {
+          pq.emplace(nds + v_nds + 1, v);
         }
-        // 全访问或者只能访问node->v的一部分
-        used[encode(node, v, n)] = min(nds, maxMoves - step);
+        used[encode(node, v, n)] = min(v_nds, maxMoves - nds);
       }
     }
-    for (auto &edge : edges) {
+    for (const auto &edge : edges) {
       int u = edge[0], v = edge[1], nds = edge[2];
       reachableNodes += min(nds, used[encode(u, v, n)] + used[encode(v, u, n)]);
     }
