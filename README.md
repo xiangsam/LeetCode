@@ -351,3 +351,11 @@ vector<bool> is_prime(n + 1, true);
       }
     }
   ```
+  
+  ---
+  ### Graph
+  #### 最小生成树MST
+  例题：1135
+  - Prim算法
+  - Kruskal算法
+    - 并查集（路径压缩，按秩合并优化）
