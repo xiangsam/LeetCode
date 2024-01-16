@@ -3,6 +3,7 @@
  *
  * [1135] 最低成本连通所有城市
  */
+#include <algorithm>
 #include <functional>
 #include <iostream>
 #include <queue>
@@ -12,7 +13,7 @@
 #include <vector>
 using namespace std;
 // @lc code=start
-class Solution {
+class Solution1 { // Prim算法
 public:
   int minimumCost(int n, vector<vector<int>> &connections) {
     unordered_map<int, vector<pair<int, int>>> graph;
@@ -41,6 +42,58 @@ public:
       }
     }
     return hash_set.size() == n ? totalCost : -1;
+  }
+};
+
+class UnionFind {
+private:
+  vector<int> rank;
+  vector<int> father;
+
+public:
+  UnionFind(int size) : rank(size, 0), father(size) {
+    for (int i = 0; i < size; ++i) {
+      father[i] = i;
+    }
+  }
+  int find(int x) {
+    if (x != father[x]) {
+      father[x] = find(father[x]);
+    }
+    return father[x];
+  }
+  bool unionSet(int x, int y) {
+    int rootX = find(x);
+    int rootY = find(y);
+    if (rootX != rootY) {
+      if (rank[rootX] > rank[rootY]) {
+        father[rootY] = rootX;
+      } else if (rank[rootX] < rank[rootY]) {
+        father[rootX] = rootY;
+      } else {
+        father[rootY] = rootX;
+        rank[rootX] += 1;
+      }
+      return true;
+    }
+    return false; // 有环
+  }
+};
+class Solution {
+public:
+  int minimumCost(int n, vector<vector<int>> &connections) {
+    UnionFind uf(n + 1);
+    auto cmp = [](vector<int> a, vector<int> b) { return a[2] < b[2]; };
+    sort(connections.begin(), connections.end(), cmp);
+    int totalCost = 0;
+    int edgeCount = 0;
+    for (const auto &e : connections) {
+      if (uf.unionSet(e[0], e[1])) {
+        totalCost += e[2];
+        ++edgeCount;
+      }
+    }
+    return edgeCount == n - 1 ? totalCost : -1;
   }
 };
 // @lc code=end
