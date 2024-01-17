@@ -79,7 +79,7 @@ public:
     return false; // 有环
   }
 };
-class Solution {
+class Solution { // Kruskal Algorithm
 public:
   int minimumCost(int n, vector<vector<int>> &connections) {
     UnionFind uf(n + 1);
