@@ -379,3 +379,12 @@ vector<bool> is_prime(n + 1, true);
 实现：双向链表(list)+哈希表
 - c++中list基础实现就是双向链表，其内存空间不连续。
 - list 不允许通过下标访问。
+
+#### 平衡树(B-Tree)，红黑树(RB-Tree)
+- 红黑树是一种自平衡的二叉搜索树
+- `std::set`, `std::map`, `std::multiset`, `std::multimap`容器实现都是用了红黑树，其元素永远遵循一个严格的排序。默认排序为`less<T>`
+  - 使用 `std::greater` 作为排序准则，元素会按照降序排列`std::set<int, std::greater<int>> descendingSet`
+  - 对map, multimap是按照键key进行排列。
+  - 对multiset, multimap会保持稳定的插入顺序。
+  - multimap不提供`operator[]`
+- `std::unordered_set`, `std::unordered_map`内部实现则为哈希表
