@@ -9,7 +9,7 @@
 // @lc code=start
 class Solution {
 public:
-    bool canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
+    bool canMeasureWater1(int jug1Capacity, int jug2Capacity, int targetCapacity) {
         stack<pair<int, int>> stk;
         stk.emplace(0, 0);
         auto hashfunc = [](const pair<int,int> &o){return hash<int>()(o.first) ^ hash<int>()(o.second);};
@@ -33,6 +33,15 @@ public:
             stk.emplace(remainX + min(remainY, jug1Capacity - remainX), remainY - min(remainY, jug1Capacity - remainX)); // Y倒入X
         }
     return false;
+    }
+    bool canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
+        // 只有x, y的总量增减是有意义的
+        if(jug1Capacity + jug2Capacity < targetCapacity){
+            return false;
+        }if(jug1Capacity == 0 || jug2Capacity == 0){
+            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
+        }
+        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
     }
 };
 // @lc code=end
