@@ -389,3 +389,11 @@ vector<bool> is_prime(n + 1, true);
   - 对multiset, multimap会保持稳定的插入顺序。
   - multimap不提供`operator[]`
 - `std::unordered_set`, `std::unordered_map`内部实现则为哈希表
+
+
+---
+### 每日一题
+
+- 2846： 求树的LCA，tarjan离线算法
+- 365: 水壶问题。递归+状态模拟 或 最小公倍数+贝祖定理
+- 514: 动态规划，很适合练习动态规划的状态定义和状态转移 
