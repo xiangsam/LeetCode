@@ -6,11 +6,11 @@
 #include <iostream>
 #include <queue>
 // @lc code=start
-class MyStack {
+class MyStack1 {
 public:
     queue<int> q1;
     queue<int> q2;
-    MyStack() {
+    MyStack1() {
 
     }
     
@@ -35,6 +35,37 @@ public:
     
     bool empty() {
         return q2.empty();
+    }
+};
+
+class MyStack {
+public:
+    queue<int> q;
+    MyStack() {
+
+    }
+    
+    void push(int x) {
+        int n = q.size();
+        q.emplace(x);
+        for(int i = 0; i < n; ++i){
+            q.emplace(q.front());
+            q.pop();
+        }
+    }
+    
+    int pop() {
+        int ret = q.front();
+        q.pop();
+        return ret;
+    }
+    
+    int top() {
+        return q.front();
+    }
+    
+    bool empty() {
+        return q.empty();
     }
 };
 
