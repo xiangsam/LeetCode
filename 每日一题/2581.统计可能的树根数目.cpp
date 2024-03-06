@@ -45,7 +45,7 @@ public:
         }
         return ans;
     }
-    int rootCount(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k){
+    int rootCount2(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k){
         unordered_map<int, vector<int>> tree;
         for(const auto &edge : edges){
             tree[edge[0]].emplace_back(edge[1]);
@@ -76,6 +76,43 @@ public:
             for(const auto & child : tree[x]){
                 if(child != father){
                     redfs(child, x, cnt + guesses_set.count(h(child, x)) - guesses_set.count(h(x, child)));
+                }
+            }
+        };
+        redfs(0, -1, cnt);
+        return ans;
+    }
+    int rootCount(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k){
+        unordered_map<int, vector<int>> tree;
+        for(const auto & edge : edges){
+            tree[edge[0]].emplace_back(edge[1]);
+            tree[edge[1]].emplace_back(edge[0]);
+        }
+        auto h = [](int x, int y) -> long long {
+            return (long long)x << 20 | y;
+        };
+        unordered_set<long long> guesses_set;
+        for(const auto & guess : guesses){
+            guesses_set.insert(h(guess[0], guess[1]));
+        }
+        int cnt = 0, ans = 0;
+        function<void(int, int)> dfs = [&](int x, int father) -> void {
+            for(const auto & child : tree[x]){
+                if(child != father){
+                    if(guesses_set.contains(h(x, child))){
+                        ++cnt;
+                    }
+                    dfs(child, x);
+                }
+            }
+        };
+        dfs(0, -1);
+        function<void(int, int, int)> redfs = [&](int x, int father, int cnt) -> void {
+            if(cnt >= k)
+                ++ans;
+            for(const auto & child : tree[x]){
+                if(child != father){
+                    redfs(child, x, cnt - guesses_set.count(h(x, child)) + guesses_set.count(h(child, x)));
                 }
             }
         };
