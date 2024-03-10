@@ -15,7 +15,7 @@ public:
             canWin[i] = 1;
         }
         for(int i = 4; i <= n; ++i){
-            if(canWin[i-1] == -1 || canWin[i-2] == -1 || canWin[i-3] == -1)
+            if(canWin[i-1] == -1 || canWin[i-2] == -1 || canWin[i-3] == -1)//此时可以控制使得后手到之前先手的必败情况
                 canWin[i] = 1;
             else
                 canWin[i] = -1;
