@@ -54,7 +54,8 @@ public:
         }
         return ans;
     }
-    int maximumScore(vector<int>& nums, int k) {
+    int maximumScore2(vector<int>& nums, int k) {
+        // 单调栈方法
         int n = nums.size();
         vector<int> left(n, -1);
         vector<int> right(n, n);
@@ -83,6 +84,21 @@ public:
             if(left[i] + 1 <= k && right[i] - 1 >= k){
                 ans = max(ans, nums[i] * (right[i] - left[i] - 1));
             }
+        }
+        return ans;
+    }
+    int maximumScore(vector<int>& nums, int k) {
+        int n = nums.size();
+        int ans = nums[k], min_num = nums[k];
+        int l = k, r = k;
+        for(int i = 0; i < n-1; ++i){
+            // 除了k共n-1未访问位置
+            if(r == n-1 || (l > 0 && nums[l-1] > nums[r+1])){
+                min_num = min(min_num, nums[--l]);
+            }else if(l == 0 || (r < n-1 && nums[r+1] >= nums[l-1])){
+                min_num = min(min_num, nums[++r]);
+            }
+            ans = max(ans, min_num * (r - l + 1));
         }
         return ans;
     }
